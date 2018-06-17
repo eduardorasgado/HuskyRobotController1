@@ -3,6 +3,8 @@ project(husky_robot_controller)
 
 
 find_package(catkin REQUIRED COMPONENTS
+  message_generation
+  message_runtime
   roscpp
   rospy
   sensor_msgs
@@ -30,10 +32,10 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   sensor_msgs
-# )
+ generate_messages(
+   DEPENDENCIES
+   sensor_msgs
+ )
 
 catkin_package(
 #  INCLUDE_DIRS include
@@ -56,9 +58,11 @@ include_directories(
 add_executable(husky_robot_controller_node src/husky_robot_controller_node.cpp)
 
 add_dependencies( husky_robot_controller_node
-	husky_robot_controller_node_generate_messages_cpp)
+	husky_robot_controller_node_generate_messages_cpp
+	${catkin_EXPORTED_TARGETS}
+)
 
 
 target_link_libraries(husky_robot_controller_node
-	${cartkin_LIBRARIES}
+	${catkin_LIBRARIES}
 )
