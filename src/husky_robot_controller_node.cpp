@@ -1,15 +1,12 @@
 #include "ros/ros.h"
 #include "sensor_msgs/LaserScan.h"
 
-void scanCallback(const sensor_msgs::LaseScan::ConstPtr& scanned){
+void scanCallback(const sensor_msgs::LaserScan::ConstPtr& scan){
 	//scanned->ranges[]
-	int n;
-	int *p = scanned->ranges[];
-	int lengthR = (sizeof(p)/sizeof(*p));
-	for(n=0; n<lengthR; ++n){
-		LOG_INFO("Range: %d", scanned->ranges[n]);
+	for(int i=0;i < scan->ranges.size();i++){
+		float range = scan->ranges[i];
+		ROS_INFO("RANGE[%d]=%f",i,range);
 	}
-	ROS_INFO("Got ranges!");
 }
 
 int main(int argc, char **argv){
@@ -19,8 +16,8 @@ int main(int argc, char **argv){
 
 	ROS_INFO("Se ha iniciado el nodo scan");
 
-	ros::Subscriber subscriptor = nodoScan.subscribe("scan",1, scanCallback);
+	ros::Subscriber subscriptor = nodoScan.subscribe("scan", 1, scanCallback);
 
-	ros::spin()
+	ros::spin();
 	return 0;
 }
