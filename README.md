@@ -8,4 +8,7 @@ please follow this commands:\
 	roslaunch husky_robot_controller husky_robot_sim_control.launch\
 And:\
 	Set LaserScan and RobotModel in rviz\
-	Make laserscan points visible(make them a bit bigger)
+	Make laserscan points visible(make them a bit bigger)\
+To see some changes and if it works:\
+	(first install teleop_twist_keyboard)\
+	rosrun teleop_twist_keyboard teleop_twist_keyboard.py
