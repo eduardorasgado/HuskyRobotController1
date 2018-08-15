@@ -1,3 +1,8 @@
+
+<p align="center">
+  <img width="400" height="153 " src="https://user-images.githubusercontent.com/40801473/44174711-da90ba00-a0db-11e8-9ab2-1b4f3599eca2.png">
+</p>
+
 # HuskyRobotController1
 Husky Robot sensing enviroment using Laser Scan. ROS simulation. Project 2: ETHZurich ROS Introduction.
 
